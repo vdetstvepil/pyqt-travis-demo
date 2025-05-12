@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/format-bold-custom.png</file>
+        <file>icons/format-size-custom.png</file>
+        <file>icons/format-font-custom.png</file>
+        <file>icons/format-color-fill-custom.png</file>
+        <file>icons/format-color-text-custom.png</file>
+        <file>icons/format-underline-custom.png</file>
+        <file>icons/format-italic-custom.png</file>
+        <file>icons/content-copy-custom.png</file>
+        <file>icons/content-cut-custom.png</file>
+        <file>icons/content-paste-custom.png</file>
+        <file>icons/file-outline-custom.png</file>
+        <file>icons/folder-open-custom.png</file>
+        <file>icons/content-save-custom.png</file>
+        <file>icons/notepad.png</file>
+    </qresource>
+</RCC>

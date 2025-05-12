@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>867</width>
+    <height>521</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Текстовый редактор</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                stop:0 #FDFDFD, /* Почти белый верх */
+                stop:0.5 #E2E2E2, /* Серый центр */
+                stop:1 #D0D0D0); /* Темно-серый низ */
+    border: 1px solid #6C6C6C; /* Тонкая темно-серая обводка */
+    border-radius: 2px;
+    padding: 4px;
+    font: 9pt MS Sans Serif; /* Классический шрифт XP */
+    color: black;
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                stop:0 #F8F8F8,
+                stop:0.5 #DADADA,
+                stop:1 #C0C0C0);
+}
+
+QPushButton:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                stop:0 #C0C0C0,
+                stop:0.5 #A8A8A8,
+                stop:1 #909090);
+    border: 1px solid #4C4C4C; /* Более темный контур при нажатии */
+}
+QPushButton:checked {
+  background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                stop:0 #C0C0C0,
+                stop:0.5 #A8A8A8,
+                stop:1 #909090);
+    border: 1px solid #4C4C4C; /* Более темный контур при нажатии */
+}
+QPushButton:checked {
+  background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                stop:0 #C0C0C0,
+                stop:0.5 #A8A8A8,
+                stop:1 #909090);
+    border: 1px solid #4C4C4C; /* Более темный контур при нажатии */
+}
+QPushButton:disabled {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                stop:0 #E0E0E0,
+                stop:0.5 #C8C8C8,
+                stop:1 #B0B0B0);
+    border: 1px solid #A0A0A0;
+    color: #808080; /* Серый текст */
+}
+
+
+QTextEdit, QLineEdit {
+    background: #FFFFFF; /* Чисто белый фон */
+    border: 1px solid #7A8BA6; /* Синевато-серая рамка */
+    font: 9pt MS Sans Serif; /* Классический XP-шрифт */
+    color: black; /* Черный текст */
+    padding: 2px;
+}
+
+QTextEdit:focus, QLineEdit:focus
+ {
+    border: 1px solid #316AC5; /* Синяя рамка при фокусе (как в XP) */
+}
+
+QComboBox {
+    border: 1px solid #7A8BA6;   /* Синевато-серая рамка */
+    border-radius: 2px;
+    padding: 2px;
+    font: 9pt MS Sans Serif;     /* Шрифт как в XP */
+    color: black;
+}
+
+QComboBox:hover {
+    background-color: #E8E8E8;   /* Чуть светлее при наведении */
+}
+
+QComboBox:focus {
+    border: 1px solid #316AC5;   /* Синяя рамка при фокусе, как в XP */
+}
+
+QComboBox QAbstractItemView {
+    background-color: #FFFFFF;   /* Белый фон выпадающего списка */
+    border: 1px solid #7A8BA6;
+    selection-background-color: #316AC5;  /* Синяя подсветка выбранного элемента */
+    selection-color: white;
+    font: 9pt MS Sans Serif;
+}
+
+
+
+QListWidget {
+    background-color: #FDFDFD;           /* Почти белый фон, как в XP Luna */
+    border: 1px solid #6C6C6C;           /* Тонкая темно-серая обводка */
+    font: 9pt Tahoma;                    /* Шрифт как в XP Luna */
+    color: black;
+    padding: 2px;
+}
+
+QListWidget::item {
+    background-color: #FDFDFD;           /* Почти белый фон для элементов */
+    padding: 3px;
+    border: 1px solid transparent;
+}
+
+QListWidget::item:selected {
+    background-color: #316AC5;           /* Синяя подсветка выбранного элемента (Luna) */
+    color: white;                        /* Белый текст для выбранного элемента */
+    border: 1px solid #316AC5;
+}
+
+QListWidget::item:hover {
+    background-color: #E8F4FC;           /* Светло-голубая подсветка при наведении (Luna) */
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QWidget" name="background" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>80</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QWidget {
+    background:#1c64d1
+}
+
+
+QLabel {
+	color: white;
+}
+</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QLabel" name="title">
+           <property name="font">
+            <font>
+             <family>Tahoma</family>
+             <pointsize>18</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Текстовый редактор</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="fileLabel">
+           <property name="text">
+            <string>C:Windows</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLabel" name="title_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>18</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap>:/icons/outlook.png</pixmap>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="label_3">
+         <property name="maximumSize">
+          <size>
+           <width>48</width>
+           <height>48</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/notepad.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="widget" native="true">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background: #D4D0C8; /* Классический бежево-серый фон */
+    border: 2px solid #808080; /* Тёмно-серая рамка */
+    border-top-color: #FFFFFF; /* Светлая линия сверху */
+    border-left-color: #FFFFFF; /* Светлая линия слева */
+    border-right-color: #404040; /* Тёмная линия справа */
+    border-bottom-color: #404040; /* Тёмная линия снизу */
+    padding: 4px 12px;
+    font: 10pt &quot;MS Sans Serif&quot;;
+    color: black;
+}
+
+QPushButton:hover {
+    background: #E4E0D8; /* Чуть светлее при наведении */
+}
+
+QPushButton:pressed {
+    background: #B0ACA4; /* Затемнённый фон при нажатии */
+    border-top-color: #404040;
+    border-left-color: #404040;
+    border-right-color: #FFFFFF;
+    border-bottom-color: #FFFFFF;
+}
+
+QPushButton:disabled {
+    background: #D4D0C8;
+    color: #A0A0A0;
+    border: 2px solid #A0A0A0;
+}
+</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QPushButton" name="btn_new">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/icons/file-outline-custom.png</normaloff>:/icons/file-outline-custom.png</iconset>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_open">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/icons/folder-open-custom.png</normaloff>:/icons/folder-open-custom.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_save">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/icons/content-save-custom.png</normaloff>:/icons/content-save-custom.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="Line" name="line">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap resource="resources.qrc">:/icons/format-font-custom.png</pixmap>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QFontComboBox" name="fontComboBox"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap resource="resources.qrc">:/icons/format-size-custom.png</pixmap>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="sizeComboBox">
+           <item>
+            <property name="text">
+             <string>10</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>12</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>14</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>16</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>18</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>20</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>24</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>28</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="Line" name="line_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_bold">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/icons/format-bold-custom.png</normaloff>:/icons/format-bold-custom.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_italic">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/icons/format-italic-custom.png</normaloff>:/icons/format-italic-custom.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_underline">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/icons/format-underline-custom.png</normaloff>:/icons/format-underline-custom.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="Line" name="line_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_textColor">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/icons/format-color-text-custom.png</normaloff>:/icons/format-color-text-custom.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_bgColor">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/icons/format-color-fill-custom.png</normaloff>:/icons/format-color-fill-custom.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>35</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="widget_2" native="true">
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="1" column="0">
+        <widget class="QTextEdit" name="textEdit"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Открыть</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Сохранить</string>
+   </property>
+  </action>
+  <action name="actionClear">
+   <property name="text">
+    <string>Очистить</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Выход</string>
+   </property>
+  </action>
+  <action name="action">
+   <property name="text">
+    <string>Копировать</string>
+   </property>
+  </action>
+  <action name="action_3">
+   <property name="text">
+    <string>Вставить</string>
+   </property>
+  </action>
+  <action name="action_4">
+   <property name="text">
+    <string>Вырезать</string>
+   </property>
+  </action>
+  <action name="action_7">
+   <property name="text">
+    <string>Отменить</string>
+   </property>
+  </action>
+  <action name="action_8">
+   <property name="text">
+    <string>Повторить</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
