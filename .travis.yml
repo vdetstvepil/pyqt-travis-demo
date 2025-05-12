@@ -14,7 +14,7 @@ script:
 
 addons:
   sonarcloud:
-    organization: "MIREA"
+    organization: "anton-kislyakov"
     token:
       secure: "$SONAR_TOKEN"
 
