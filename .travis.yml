@@ -1,0 +1,22 @@
+language: python
+python:
+  - "3.8"
+
+install:
+  - pip install -r requirements.txt
+  - pip install coverage
+
+script:
+  - coverage run main.py &
+  - sleep 3
+  - kill $!
+  - coverage report
+
+addons:
+  sonarcloud:
+    organization: "MIREA"
+    token:
+      secure: "$SONAR_TOKEN"
+
+cache:
+  pip: true
